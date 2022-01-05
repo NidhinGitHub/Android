@@ -1,0 +1,66 @@
+PRG 3
+
+\\main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/b"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="85dp" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="106dp"
+        android:layout_height="77dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="2000dp"
+        tools:layout_editor_absoluteY="5000dp" />
+
+</LinearLayout>
+
+\\ Main
+
+
+package com.example.jonanzapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    Button b;
+    TextView tv;
+    int db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        b=findViewById(R.id.b);
+        tv=findViewById(R.id.tv);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               db++;
+               tv.setText(String.valueOf(db));
+            }
+        });
+
+    }
+}
